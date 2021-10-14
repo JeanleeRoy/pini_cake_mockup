@@ -56,3 +56,31 @@ nav {
 .menu--item:hover {
     opacity: .7;
 }
+
+/* Si el ancho de pantalla es mayor a 768px */
+
+@media screen and (min-width: 768px) {
+    nav {
+        max-width: 1200px;
+    }
+    .menu--items {
+        transform: scaleY(1);
+        position: relative;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+        background-color: #e9cfce;
+    }
+    .menu--item {
+        width: auto;
+        /*margin-left: 11.5%;*/
+    }
+    .menu--item:first-child {
+        margin-left: 9%;
+    }
+    .menu--item a {
+        display: inline-block;
+    }
+    .menu--button {
+        display: none;
+    }
+}
