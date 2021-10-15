@@ -57,3 +57,10 @@
     width: 100%;
     height: 75px;
 }
+
+@media screen and (min-width: 768px) {
+    .hero--columns { transform: translateY(-20px); }
+    .hero--column { max-width: 500px; }
+    .hero--image { transform: scale(1.05); }
+    .hero--curve { height: 100px; }
+}
