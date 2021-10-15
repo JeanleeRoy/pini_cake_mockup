@@ -19,4 +19,28 @@ a {
     display: inline-block;
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
+}
+
+.columns {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+}
+
+.yellow-text { color: #f48c06; }
+
+
+/* Si el ancho de pantalla es mayor a 768px */
+
+@media screen and (min-width: 768px) {
+    .columns {
+        flex-direction: row;
+    }
 }
