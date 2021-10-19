@@ -3,6 +3,8 @@
 .hero--columns { 
     padding: 0 2rem;
     max-width: 1200px;
+    justify-content: center;
+    align-items: center;
     margin: auto;
 }
 
@@ -59,8 +61,8 @@
 }
 
 @media screen and (min-width: 768px) {
-    .hero--columns { transform: translateY(-20px); }
-    .hero--column { max-width: 500px; }
-    .hero--image { transform: scale(1.05); }
+    .hero--column { max-width: 650px; }
+    .hero--col-left {max-width: 500px; transform: translateY(-20px);}
+    .hero--image { transform: scale(1.06); }
     .hero--curve { height: 100px; }
 }
