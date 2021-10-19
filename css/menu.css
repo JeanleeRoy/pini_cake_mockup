@@ -9,12 +9,15 @@ nav {
     width: 100%;
     display: flex;
     align-items: center;
-    padding: .5rem 2rem;
+    padding: 0 2rem;
 }
 
-.menu--logo img {
-    height: 140px;
+.menu--logo a {
+    height: 70px;
+    margin: 1.5rem 0 1rem;
 }
+
+.menu--logo img { height: 100%; }
 
 .menu--section {
     display: flex;
