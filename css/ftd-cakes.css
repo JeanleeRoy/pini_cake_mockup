@@ -1,0 +1,94 @@
+.ftd-cakes--container {
+    width: 100%;
+    padding: 1rem;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.ftd-cakes--container h2 {
+    color: #2F327D;
+    font-size: 1.8rem;
+    margin: 2rem 0;
+}
+
+.ftd-cakes--slider {
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    position:relative;
+    overflow:hidden;
+    list-style:none;
+    padding:0;
+    z-index:1
+}
+
+.swiper-wrapper{
+    position:relative;
+    width:100%;
+    height:100%;
+    z-index:1;
+    display:flex;
+    transition-property:transform;
+}
+
+.swiper-slide {
+    flex-shrink:0;
+    width:100%;
+    height:100%;
+    position:relative;
+    text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    transition-property:transform
+}
+
+.swiper-slide a {
+    width: 100%;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.ftd--btn {
+    background-color: white;
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    padding: .8rem;
+    z-index:10;
+    box-shadow: 0px 4px 10px #ccc;
+}
+
+.ftd--btn svg path{
+    stroke-width: 2px;
+}
+
+#ftd--prev-btn { left: -.5rem }
+#ftd--next-btn { right: -.5rem }
+
+.ftd--btn svg {
+    display: block;
+    transition: all ease-in .3s;
+}
+
+#ftd--prev-btn:hover svg { transform:translateX(-2px) }
+#ftd--next-btn:hover svg { transform:translateX(2px) }
+
+@media screen and (min-width: 768px) {
+    .ftd-cakes--slider {height: 350;}
+    .ftd--btn:active { transform: translateY(-50%) scale(1.1);}
+    #ftd--prev-btn { left: -1.2rem }
+    #ftd--next-btn { right: -1.2rem }
+}

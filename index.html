@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/ftd-cakes.css">
     <title>Document</title>
 </head>
 <body>
     <header>
         <nav>
             <div class="menu--logo">
-                <a href="/">
+                <a href="">
                     <img src="img/pini_cake_logo2.png" alt="Pini Cake">
                 </a>
             </div>
@@ -30,6 +31,7 @@
             </div>
         </nav>
     </header>
+
     <section>
         <div class="hero--container">
             <div class="columns hero--columns">
@@ -53,6 +55,50 @@
         </div>
         <img class="hero--curve" src="img/curve.svg" alt="curva">
     </section>
+
+    <!--featured cakes-->
+    <section>
+        <div class="ftd-cakes--container">
+            <h2>Las más pedidas</h2>
+
+            <div class="ftd-cakes--slider">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="">
+                                <img src="img/home/ftd-cake-1.png" alt="cake">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="">
+                                <img src="img/home/ftd-cake-2.png" alt="cake">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="">
+                                <img src="img/home/ftd-cake-3.png" alt="cake">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ftd-cakes--actions">
+                    <a class="btn ftd--btn" id="ftd--prev-btn">
+                        <svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                            <path fill="#1EA4CE" d="M14.008 17.692a.857.857 0 001.317-1.098L11.495 12l3.829-4.594a.857.857 0 00-1.317-1.098L9.73 11.44a.85.85 0 00-.208.56.854.854 0 00.208.56l4.277 5.132z" />
+                        </svg>
+                    </a>
+                    <a class="btn ftd--btn" id="ftd--next-btn">
+                        <svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                            <path fill="#1EA4CE" d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
 </body>
-<script src="./script/menu.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="./script/app.js"></script>
 </html>
