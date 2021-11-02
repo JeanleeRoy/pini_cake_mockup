@@ -1,0 +1,52 @@
+.swiper {
+    width: 100%;
+    height: 100%;
+    position:relative;
+    overflow:hidden;
+    list-style:none;
+    padding:0;
+    z-index:1
+}
+
+.swiper-wrapper{
+    position:relative;
+    width:100%;
+    height:100%;
+    z-index:1;
+    display:flex;
+    transition-property:transform;
+}
+
+.swiper-slide {
+    flex-shrink:0;
+    width:100%;
+    height:100%;
+    position:relative;
+    text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    transition-property:transform
+}
+
+.swipper-btn {
+    background-color: white;
+    border-radius: 50%;
+    padding: .8rem;
+    z-index:10;
+    box-shadow: 0px 4px 10px #ccc;
+}
+
+.swipper-btn svg {
+    display: block;
+    transition: all ease-in .3s;
+}
+
+.swipper-btn svg path{
+    stroke-width: 2px;
+}
+
+@media screen and (min-width: 768px) {
+    .swipper-btn:active { transform: scale(1.1);}
+}
