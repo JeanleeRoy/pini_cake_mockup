@@ -1,0 +1,16 @@
+.footer--container { 
+    background-color: #e9cfce;
+    padding-bottom: 2rem;
+}
+
+.footer--container img {
+    display: block;
+    width: 100%;
+    max-width: 170px;
+    margin: auto;
+}
+
+.footer--container p {
+    text-align: center;
+    color: #2F327D;
+}
