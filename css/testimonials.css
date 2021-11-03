@@ -1,0 +1,98 @@
+.testimonials--container {
+    width: 100%;
+    padding: .4rem 1rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.tes--text {
+    width: 100%;
+    max-width: 480px;
+    padding: 0 1rem 1rem;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    color: #464646;
+}
+
+.testimonials--container h2 {
+    color: #2F327D;
+    font-size: 1.9rem;
+    margin: .8rem 0 2rem;
+    text-align: center;
+}
+
+.tes--slider {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
+}
+
+.tes--slide {
+    width: 100%;
+    max-width: 380px;
+}
+
+.tes--slide picture {
+    display: block;
+    width: 100%;
+    min-height: 300px;
+    max-height: 470px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 8rem;
+}
+
+.tes--slide picture img { width: 100% }
+
+.tes--slide blockquote {
+    position: absolute;
+    display: block;
+    width: calc(100%-1rem);
+    max-width: 380px;
+    bottom: .5rem;
+    right: 0;
+    margin: .8rem;
+    padding: 1.5rem;
+    padding-left: 1rem;
+    background-color: white;
+    box-shadow: 1px 3px 20px rgba(0,0,0,.12);
+    border-left: 8px solid #F67766;    ;
+    border-radius: 15px;
+    color: #5F5F7E;
+}
+
+.tes--slide blockquote > p { 
+    position: relative;
+    font-size: .85rem;
+    text-align: left;
+    padding-left: 1rem;
+    border-left: 1px solid #BDBDD1;
+}
+
+.tes--quote-info {
+    font-size: .88rem;
+    display: flex;
+    margin-top: 1.2rem;
+    padding-left: 1rem;
+    justify-content: space-between;
+}
+
+.tes--btn {
+    position: absolute;
+    z-index: 2;
+    right: -5px;
+    top: 40%;
+}
+
+@media screen and (min-width: 488px) {
+    .tes--btn { right: 2.5rem}
+}
+
+@media screen and (min-width: 768px) {
+    .tes--text { margin-top: 4rem; padding-right: 2rem;}
+    .testimonials--container h2 { text-align: left }
+    .tes--slide blockquote {right: 1rem }
+    .tes--slide picture { margin-bottom: 5rem }
+    .tes--btn { right: 4.5rem}
+}

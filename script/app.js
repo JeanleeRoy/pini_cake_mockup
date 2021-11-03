@@ -24,3 +24,12 @@ var swiper = new Swiper(".mySwiper", {
         }
       }
 });
+
+
+// Testimonial slider
+var swiper_2 = new Swiper(".testimonials", {
+  navigation: {
+      nextEl: "#tes--next-btn"
+  },
+  loop: true
+});
