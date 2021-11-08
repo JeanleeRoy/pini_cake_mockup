@@ -1,5 +1,19 @@
 const menu_btn = document.getElementById('menu-btn');
 const menu_items = document.getElementById('menu-items');
+const links_index = document.querySelectorAll('.linkToIndex');
+
+// Prevent 404 index page on github
+links_index.forEach( item => {
+  item.addEventListener('click', e => {    
+    e.preventDefault();
+    var href = e.currentTarget.href || '';
+    // on GitHub environment
+    if (href.split("/").includes("jeanleeroy.github.io")) {
+      window.location.href = "https://jeanleeroy.github.io/pini_cake_mockup/";
+    }
+  }, false);
+})
+
 
 // Menu button
 menu_btn.addEventListener('click', () => {
