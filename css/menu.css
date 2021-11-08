@@ -57,7 +57,11 @@ nav {
 }
 
 .menu--item:hover {
-    opacity: .7;
+    opacity: .6;
+}
+
+.menu--social a {
+    margin: 0 .8rem;
 }
 
 /* Si el ancho de pantalla es mayor a 768px */
@@ -69,12 +73,14 @@ nav {
     .menu--items {
         transform: scaleY(1);
         position: relative;
-        justify-content: space-around;
+        justify-content: flex-end;
+        align-items: center;
         flex-wrap: nowrap;
         background-color: #e9cfce;
     }
     .menu--item {
         width: auto;
+        margin-right: 4rem;
         /*margin-left: 11.5%;*/
     }
     .menu--item:first-child {
