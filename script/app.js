@@ -28,13 +28,13 @@ var swiper = new Swiper(".mySwiper", {
     },
     loop: true,
     breakpoints: {
-        640: {
+        600: {
           slidesPerView: 2,
-          spaceBetween: 20,
+          spaceBetween: 25,
         },
         768: {
           slidesPerView: 3,
-          spaceBetween: 40,
+          spaceBetween: 50,
         }
       }
 });
