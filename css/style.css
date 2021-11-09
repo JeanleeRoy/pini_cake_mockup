@@ -37,7 +37,9 @@ a {
 .yellow-text { color: #f48c06; }
 .red-text { color: #f40606; }
 .purple-text { color: #91647B; }
-
+.rose-text { color: #D8587E; }
+.violet-text { color: #ba58d8; }
+/*olor: #cc7da5;*/
 
 /* Si el ancho de pantalla es mayor a 768px */
 

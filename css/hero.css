@@ -1,6 +1,6 @@
 .hero--container { 
     background-color: #e9cfce;
-    background: linear-gradient(180deg, rgba(233,207,206,1) 0%, rgba(233,207,206,0.7) 60%, rgba(233,207,206,0.43) 100%); 
+    background: linear-gradient(180deg, rgba(233,207,206,1) 0%, rgba(233,207,206,0.7) 60%, rgba(233,207,206,0.2) 100%); 
 }
 
 .hero--columns { 
@@ -41,10 +41,13 @@
     background-color: #D8587E;
     padding: 10px 20px;
     border-radius: 30px;
-    transition: all ease .2s;
+    transition: all ease .4s;
 }
 
-.hero--btn:hover { color: black; }
+.hero--btn:hover { 
+    color: black;
+    box-shadow: 1px 1px 5px #a3a3a3;
+}
 
 .hero--link {
     display: inline-flex;
@@ -56,6 +59,12 @@
     padding-right: 10px;
     background: rgba(255, 255, 255, 0.59);
     border-radius: 40.5px 25px 25px 40.5px;
+    transition: all ease .4s;
+}
+
+.hero--link:hover {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 1px 1px 6px #ccc;
 }
 
 .hero--link img { margin-right: 10px; }

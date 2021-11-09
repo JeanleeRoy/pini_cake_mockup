@@ -33,7 +33,7 @@
                         <a target="_blank" href="https://api.whatsapp.com/message/HJGQU6HJ5LGMG1" class="icons icons--whatsapp"></a>
                     </div>
                 </div>
-                <button class="btn menu--button" id="menu-btn">
+                <button class="btn menu--button" id="menu-btn" onclick="(e) => e.preven" >
                     <img src="img/menu_burger_icon.png" alt="menu icon" width="22">
                 </button>
             </div>
@@ -49,10 +49,10 @@
                     <p>Porque un pastel es más que un pastel. 
                         Prueba la experiencia Pini-Cake.</p>
                     <div class="hero--actions">
-                        <a class="btn hero--btn" href="">Cotizar ahora</a>
+                        <a class="btn hero--btn" >Cotizar ahora</a>
                         <a class="hero--link">
                             <img src="img/pink_play_icon.png" alt="play" width="40">
-                            Mira nuestra coleción
+                            Mira nuestra colección
                         </a>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
     <!--featured cakes-->
     <section>
         <div class="ftd-cakes--container">
-            <h2>Las más pedidas</h2>
+            <h2 class="purple-text">Las más pedidas</h2>
 
             <div class="ftd-cakes--slider">
                 <div class="swiper mySwiper">
@@ -82,7 +82,7 @@
                                 <div class="ftd-slide-text">
                                     <div class="ftd-slide-title">
                                         <p>Cake Terciopelo Rojo</p>
-                                        <span class="purple-text" >S/.100</span>
+                                        <span class="violet-text" >S/.100</span>
                                     </div>
                                     <div class="ftd-slide-description">
                                         <p>Hermoso y fresco cake terciopelo rojo relleno de 
@@ -99,7 +99,7 @@
                                 <div class="ftd-slide-text">
                                     <div class="ftd-slide-title">
                                         <p>Mini Choco Birthday Cake </p>
-                                        <span class="purple-text" >S/.100</span>
+                                        <span class="violet-text" >S/.100</span>
                                     </div>
                                     <div class="ftd-slide-description">
                                         <p>¿Quieres algun detalle para celebrar? <br>
@@ -116,7 +116,7 @@
                                 <div class="ftd-slide-text">
                                     <div class="ftd-slide-title">
                                         <p>Mini Chessecake Oreo</p>
-                                        <span class="purple-text" >S/.50</span>
+                                        <span class="violet-text" >S/.50</span>
                                     </div>
                                     <div class="ftd-slide-description">
                                         <p>Base de galleta oreo relleno con queso crema, 
@@ -154,7 +154,7 @@
                 </div>
                 <div class="column about--column">
                     <div class="about--text">
-                        <h2>Sobre <span class="yellow-text">Pini Cake</span></h2>
+                        <h2 class="purple-text" >Sobre <span class="violet-text">Pini Cake</span></h2>
                         <p>Hola!!!! Me llamo keyla Diaz, madre a tiempo completo y pastelera amateur.</p>
                         <p>No hay nada más emocionante que asumir nuevos retos. Por ello, me embarco en esta aventura de juntar mi pasión por diseñar y la pastelería!
                             Bienvenidos a mi pagina en donde compartiré mis creaciones. <span class="red-text">❤</span></p>
@@ -171,9 +171,22 @@
             <div class="columns tes--columns">
                 <div class="column">
                     <div class="tes--text">
-                        <h2>¿Qué dicen de nosotros?</h2>
+                        <h2 class="purple-text">¿Qué dicen de nosotros?</h2>
                         <p>Con esfuerzo y dedicación hemos acompañado los momentos especiales de nuestros clientes.</p>
                         <p>Ahora, ellos comparten su experiencia sobre nuestro trabajo.</p>
+                        <a class="tes--share">
+                            Comparte tu experiencia
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 172 172" style=" fill:#fff;">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                    <g fill="#ba58d8">
+                                        <path d="M123.56901,42.94401c-2.18814,0.00053 -4.1576,1.32735 -4.98006,3.35504c-0.82245,2.0277 -0.33375,4.35156 1.23575,5.87624l26.65804,26.65804h-133.94108c-1.93842,-0.02741 -3.74144,0.99102 -4.71865,2.66532c-0.97721,1.6743 -0.97721,3.74507 0,5.41937c0.97721,1.6743 2.78023,2.69273 4.71865,2.66532h133.94108l-26.65804,26.65804c-1.40412,1.34815 -1.96971,3.35005 -1.47866,5.23364c0.49105,1.88359 1.96202,3.35456 3.84561,3.84561c1.88359,0.49105 3.88549,-0.07455 5.23364,-1.47866l35.83333,-35.83333c2.09823,-2.0991 2.09823,-5.50149 0,-7.60059l-35.83333,-35.83333c-1.01222,-1.0424 -2.4033,-1.63064 -3.85628,-1.6307z"></path>
+                                    </g>
+                                </g>
+                                </svg>
+                            </span>
+                        </a>
                     </div>
                 </div>
                 <div class="column">
@@ -216,7 +229,7 @@
     <footer>
         <div class="footer--container">
             <img src="img/pini_cake_logo.png" alt="Pini Cake">
-            <p>© 2021 PINI CAKE. Todos los derechos reservados </p>
+            <p class="purple-text" >© 2021 PINI CAKE. Todos los derechos reservados </p>
         </div>
     </footer>
 
