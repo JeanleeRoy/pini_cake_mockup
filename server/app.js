@@ -1,52 +1,38 @@
 const http = require('http')
 const https = require('https')
-const Todo = require("./controller");
-const { getReqData } = require("./utils");
+const axios = require('axios')
+const { Todo, baseUrl, queryUrl } = require("./controller");
 
 const PORT = process.env.PORT || 3000;
 
-const server = http.createServer(async (req, res) => {
-    
+const server = http.createServer(async (request, response) => {
+
     //set the request route
-    if (req.url === "/api" && req.method === "GET") {
-        // get the todos.
-        const todos = await new Todo().getTodos();
-        // set the status code, and content-type
-        res.writeHead(200, { "Content-Type": "application/json" });
-        // send the data
-        res.end(JSON.stringify(todos));
+    if (request.url === "/api/sample" && request.method === "GET") {
+        // get posts
+        const url = 'https://jsonplaceholder.typicode.com/posts';
+        axios.get(url)
+            .then(res => {
+                response.writeHead(200, { "Content-Type": "application/json" })
+                response.end(JSON.stringify(res.data));
+            })
+            .catch(err => {
+                console.error(err);
+                response.writeHead(404, { "Content-Type": "application/json" });
+                response.end(JSON.stringify({ message: err.message, code: 404 }));
+            })
     }
 
-    else if (req.url === "/insta-media" && req.method === "GET") {
-        // get media
-
-        https.get('https://jsonplaceholder.typicode.com/posts', (resp) => {
-        let data = '';
-
-        // A chunk of data has been received.
-        resp.on('data', (chunk) => {
-            data += chunk;
-        });
-
-        // The whole response has been received. Print out the result.
-        resp.on('end', () => {
-            console.log(JSON.parse(data).explanation);
-        });
-
-    }).on("error", (err) => {
-        console.log("Error: " + err.message);
-    });
-
-        // set the status code, and content-type
-        res.writeHead(200, { "Content-Type": "application/json" });
-        // send the data
-        res.end(JSON.stringify(todos));
+    else if (request.url === "/api/insta-media" && request.method === "GET") {
+        // get instagram media
+        response.writeHead(200, { "Content-Type": "application/json" })
+        response.end(JSON.stringify(res.data));
     }
 
     // If no route present
     else {
-        res.writeHead(404, { "Content-Type": "application/json" });
-        res.end(JSON.stringify({ message: "Route not found" }));
+        response.writeHead(404, { "Content-Type": "application/json" });
+        response.end(JSON.stringify({ message: "Route not found" }));
     }
 
 })
