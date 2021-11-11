@@ -8,21 +8,29 @@ const PORT = process.env.PORT || 3000;
 const server = http.createServer(async (request, response) => {
 
     const Instagram = new Insta();
-    response.setHeader("Content-Type", "application/json");
-    response.setHeader('Access-Control-Allow-Origin', '*');
+    const headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
+        "Content-Type": "application/json"
+    };
 
+    if (request.method === "OPTIONS") {
+        response.writeHead(204, headers);
+        response.end();
+        return;
+    }
 
     if (request.url === "/sample/posts" && request.method === "GET") {
         // get posts, for testing purposes
         const url = 'https://jsonplaceholder.typicode.com/posts';
         axios.get(url)
             .then(res => {
-                response.writeHead(200)
+                response.writeHead(200, headers);
                 response.end(JSON.stringify(res.data));
             })
             .catch(err => {
                 console.error(err);
-                response.writeHead(404);
+                response.writeHead(404, headers);
                 response.end(JSON.stringify({ message: err.message, code: 404 }));
             })
     }
@@ -30,11 +38,11 @@ const server = http.createServer(async (request, response) => {
     else if (request.url === "/api/insta-media" && request.method === "GET") {
         // get instagram media
         Instagram.getMedia(media => {
-            response.writeHead(200);
-            response.end(JSON.stringify(media));
+            response.writeHead(200, headers);
+            response.end(JSON.stringify(media.data));
         }, err => {
             console.error(err);
-            response.writeHead(err.code);
+            response.writeHead(err.code, headers);
             response.end(JSON.stringify(err));
         })
     }
@@ -43,10 +51,10 @@ const server = http.createServer(async (request, response) => {
         const mediaId = request.url.split("/").at(-1);
         // get instagram media by id
         Instagram.getMediaById(mediaId, media => {
-            response.writeHead(200);
+            response.writeHead(200, headers);
             response.end(JSON.stringify(media));
         }, err => {
-            console.error(err);
+            console.error(err, headers);
             response.writeHead(err.code);
             response.end(JSON.stringify(err));
         })
