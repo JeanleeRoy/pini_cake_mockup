@@ -1,77 +1,49 @@
-const http = require('http')
-const https = require('https')
-const axios = require('axios').default
+const express = require("express");
 const Insta = require("./controller");
 
 const PORT = process.env.PORT || 3000;
+const app = express();
 
-const server = http.createServer(async (request, response) => {
+const instaApi = new Insta();
 
-    const Instagram = new Insta();
-    const headers = {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
-        "Content-Type": "application/json"
-    };
 
-    if (request.method === "OPTIONS") {
-        response.writeHead(204, headers);
-        response.end();
-        return;
-    }
+app.get("/", (request, res) => {
+    res.send("GET /");
+});
 
-    if (request.url === "/sample/posts" && request.method === "GET") {
-        // get posts, for testing purposes
-        const url = 'https://jsonplaceholder.typicode.com/posts';
-        axios.get(url)
-            .then(res => {
-                response.writeHead(200, headers);
-                response.end(JSON.stringify(res.data));
-            })
-            .catch(err => {
-                console.error(err);
-                response.writeHead(404, headers);
-                response.end(JSON.stringify({ message: err.message, code: 404 }));
-            })
-    }
 
-    else if (request.url === "/api/insta-media" && request.method === "GET") {
-        // get instagram media
-        Instagram.getMedia(media => {
-            response.writeHead(200, headers);
-            response.end(JSON.stringify(media.data));
+app.get("/api", (req, res) => {
+    res.send("Say hi to the API! 👋👋👋");
+});
+
+
+// get instagram media
+
+app.get('/api/insta-media', (req, res) => {
+    res.set("Access-Control-Allow-Origin", "*");
+    instaApi.getMedia(media => {
+        res.send(media.data);
+    }, err => {
+        console.error(err);
+        res.status(err.code).json(err);
+    })
+})
+
+
+// get instagram media by id
+
+app.get('/api/insta-media/:id', (req, res) => {
+    res.set("Access-Control-Allow-Origin", "*");
+    instaApi.getMediaById(req.params.id,
+        media => {
+            res.send(media.data);
         }, err => {
             console.error(err);
-            response.writeHead(err.code, headers);
-            response.end(JSON.stringify(err));
+            res.status(err.code).json(err);
         })
-    }
-
-    else if (request.url.includes('/api/media-id/') && request.method === "GET") {
-        const mediaId = request.url.split("/").at(-1);
-        // get instagram media by id
-        Instagram.getMediaById(mediaId, media => {
-            response.writeHead(200, headers);
-            response.end(JSON.stringify(media));
-        }, err => {
-            console.error(err, headers);
-            response.writeHead(err.code);
-            response.end(JSON.stringify(err));
-        })
-    }
-
-    // If no route present
-    else {
-        response.writeHead(404, { "Content-Type": "application/json" });
-        response.end(JSON.stringify({ message: "Route not found" }));
-    }
-
 })
 
-server.listen(PORT, (err) => {
-    if (err) {
-        console.log('Something went wrong', err);
-    } else {
-        console.log(`server started on port: ${PORT}`);
-    }
-})
+
+app.listen(PORT, () => {
+    console.log(`server started on port: ${PORT}`);
+});

@@ -34,7 +34,7 @@ class Controller {
                 access_token: userToken
             }
         }).then(res => {
-            if (callback != null) callback(res.data);
+            if (callback != null) callback(res);
         }).catch(err => {
             if (errCallback != null) handleError(err, errCallback);
         })
