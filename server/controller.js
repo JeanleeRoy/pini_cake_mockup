@@ -1,77 +1,45 @@
 // controller.js
 // Logic behind the functionalities
-const data = require("./data");
+const axios = require('axios').default
 
-const baseUrl = 'https://graph.instagram.com/';
+const baseUrl = 'https://graph.instagram.com';
 const userToken = 'IGQVJYMWFCTFZA6TlpnSXFwbXlONzFzMzQyc0pyNGxsNlhJZAzE4elFDYUhqREVJSUp0ZA0lKNlhzOWowdUtETmd2T2g3VTJDWjBhcWU3a0docnlxN1cyRTFmbW1yaXV3bnJUS1ZAIY1ZAkVGs1aWZAvYXRidAZDZD';
-const queryUrl = `me/media?id,caption,media_url,media_type,permalink&access_token=${userToken}`;
 
+const handleError = (error, callback) => {
+    callback({
+        message: error.message || 'Unexpected error',
+        code: error.code || error.status || 400
+    })
+}
 
 class Controller {
-    // getting all todos
-    async getTodos() {
-        // return all todos
-        return new Promise((resolve, _) => resolve(data));
-    }
-
-    // getting a single todo
-    async getTodo(id) {
-        return new Promise((resolve, reject) => {
-            // get the todo
-            let todo = data.find((todo) => todo.id === parseInt(id));
-            if (todo) {
-                // return the todo
-                resolve(todo);
-            } else {
-                // return an error
-                reject(`Todo with id ${id} not found `);
+    // getting all instagram media
+    getMedia(callback, errCallback) {
+        axios.get(baseUrl + '/me/media/', {
+            params: {
+                fields: 'id,caption,media_url,media_type,permalink',
+                access_token: userToken
             }
-        });
+        }).then(res => {
+            if (callback != null) callback(res.data);
+        }).catch(err => {
+            if (errCallback != null) handleError(err, errCallback);
+        })
     }
 
-    // creating a todo
-    async createTodo(todo) {
-        return new Promise((resolve, _) => {
-            // create a todo, with random id and data sent
-            let newTodo = {
-                id: Math.floor(4 + Math.random() * 10),
-                ...todo,
-            };
-
-            // return the new created todo
-            resolve(newTodo);
-        });
-    }
-
-    // updating a todo
-    async updateTodo(id) {
-        return new Promise((resolve, reject) => {
-            // get the todo.
-            let todo = data.find((todo) => todo.id === parseInt(id));
-            // if no todo, return an error
-            if (!todo) {
-                reject(`No todo with id ${id} found`);
+    getMediaById(mediaId, callback, errCallback) {
+        axios.get(baseUrl + `/${mediaId}`, {
+            params: {
+                fields: 'id,caption,media_url,media_type,permalink,thumbnail_url',
+                access_token: userToken
             }
-            //else, update it by setting completed to true
-            todo["completed"] = true;
-            // return the updated todo
-            resolve(todo);
-        });
+        }).then(res => {
+            if (callback != null) callback(res.data);
+        }).catch(err => {
+            if (errCallback != null) handleError(err, errCallback);
+        })
     }
 
-    // deleting a todo
-    async deleteTodo(id) {
-        return new Promise((resolve, reject) => {
-            // get the todo
-            let todo = data.find((todo) => todo.id === parseInt(id));
-            // if no todo, return an error
-            if (!todo) {
-                reject(`No todo with id ${id} found`);
-            }
-            // else, return a success message
-            resolve(`Todo deleted successfully`);
-        });
-    }
 }
 
 module.exports = Controller;
