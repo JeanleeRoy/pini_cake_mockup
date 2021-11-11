@@ -9,6 +9,7 @@ const server = http.createServer(async (request, response) => {
 
     const Instagram = new Insta();
     response.setHeader("Content-Type", "application/json");
+    response.setHeader('Access-Control-Allow-Origin', '*');
 
 
     if (request.url === "/sample/posts" && request.method === "GET") {
