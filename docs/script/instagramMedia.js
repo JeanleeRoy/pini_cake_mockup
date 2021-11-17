@@ -1,4 +1,4 @@
-const baseUrl =  'https://pinicake-server.herokuapp.com';//'http://127.0.0.1:3000'
+const baseUrl =  'http://127.0.0.1:3000'
 const queryUrl = '/api/insta-media';
 
 const $gallery = document.getElementById('insta-gallery');
@@ -14,7 +14,7 @@ const getInstagramMedia = () => {
     fetch(baseUrl + queryUrl)
         .then(res => res.json())
         .then(data => {
-            showMedia(data.slice(0, 3));
+            showMedia(data.slice(0, 6));
         })
         .catch(err => {
             console.log(err);
@@ -23,16 +23,18 @@ const getInstagramMedia = () => {
 
 const showMedia = (data) => {
     data.forEach(media => {
-        $template.querySelector(".insta--image").src = media.media_url;
         $template.querySelector(".insta--image").alt = media.media_type;
         $template.querySelector(".insta--box").setAttribute("href", media.permalink)
         if (media.media_type === 'VIDEO') {
             $template.querySelector("svg").setAttribute("height", 18);
             $template.querySelector("svg").setAttribute("width", 18);
+            $template.querySelector(".insta--image").src = media.thumbnail_url;
             $template.querySelector(".path-svg").setAttribute("d", svgPath.video);
         } else if (media.media_type === 'CAROUSEL_ALBUM') {
+            $template.querySelector(".insta--image").src = media.media_url;
             $template.querySelector(".path-svg").setAttribute("d", svgPath.album);
         } else {
+            $template.querySelector(".insta--image").src = media.media_url;
             $template.querySelector(".path-svg").setAttribute("d", "");
         }
         let clone = document.importNode($template, true);
