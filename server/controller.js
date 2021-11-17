@@ -3,7 +3,8 @@
 const axios = require('axios').default
 
 const baseUrl = 'https://graph.instagram.com';
-const userToken = 'IGQVJYMWFCTFZA6TlpnSXFwbXlONzFzMzQyc0pyNGxsNlhJZAzE4elFDYUhqREVJSUp0ZA0lKNlhzOWowdUtETmd2T2g3VTJDWjBhcWU3a0docnlxN1cyRTFmbW1yaXV3bnJUS1ZAIY1ZAkVGs1aWZAvYXRidAZDZD';
+//const userToken = 'IGQVJYMWFCTFZA6TlpnSXFwbXlONzFzMzQyc0pyNGxsNlhJZAzE4elFDYUhqREVJSUp0ZA0lKNlhzOWowdUtETmd2T2g3VTJDWjBhcWU3a0docnlxN1cyRTFmbW1yaXV3bnJUS1ZAIY1ZAkVGs1aWZAvYXRidAZDZD';
+const userToken = 'IGQVJWZAkNUbWNkWU5jVU1LeFVVb0ZAYN1JTXzliRDNVdHRWZAXREU3U1ZAUJHUnBvU1Fpa0dQdlJONFNQbjZA2NjhLSWZAkQ3R1WHVXWkhKTVVxV2dIcWh3Q0VobUVFS21DWEQzUVVRNnhuaTV2Q2RvdlVHVgZDZD'
 
 const handleError = (error, callback) => {
     callback({
@@ -17,7 +18,7 @@ class Controller {
     getMedia(callback, errCallback) {
         axios.get(baseUrl + '/me/media/', {
             params: {
-                fields: 'id,caption,media_url,media_type,permalink',
+                fields: 'id,caption,media_url,media_type,permalink,thumbnail_url',
                 access_token: userToken
             }
         }).then(res => {
