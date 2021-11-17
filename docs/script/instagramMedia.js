@@ -1,4 +1,4 @@
-const baseUrl =  'http://127.0.0.1:3000'
+const baseUrl =  'https://pinicake-server.herokuapp.com';//'http://127.0.0.1:3000'
 const queryUrl = '/api/insta-media';
 
 const $gallery = document.getElementById('insta-gallery');
