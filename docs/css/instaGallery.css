@@ -26,6 +26,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 25px;
+    box-shadow: 1px 1px 15px rgba(0,0,0,.04);
 }
 
 .insta--box:first-child {
@@ -37,7 +38,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all ease .4s;
+    transition: all ease .5s;
+    color: #c2c1c1;
 }
 
 .insta--box svg {
@@ -46,7 +48,7 @@
     right: 1rem;
 }
 
-.insta--box:hover img { transform: scale(1.04); }
+.insta--box:hover img { transform: scale(1.05); }
 
 @media screen and (max-width:768px) {
     .insta--container h2 {text-align: center;}
