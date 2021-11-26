@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/colections.css">
+    <link rel="stylesheet" href="./css/store/header.css">
     <title>Colecciones</title>
 </head>
 <body>
@@ -36,15 +36,28 @@
         </nav>
     </header>
 
-    <br>
+    <div class="store--header">
+        <h1 align="center" class="purple-text" > Nuestra colección </h1>
+        <small >Encuentra ese detalle especial que buscas</small>
+        <br>
+        <input type="search" id="search" placeholder="Buscar ">
+        <div class="store--categories" id="categorias">
+            <button class="btn active">Todas</button>
+            <button class="btn">Infantil</button>
+            <button class="btn">Mujer</button>
+            <button class="btn">Especiales</button>
+            <button class="btn">Bodas</button>
+            <button class="btn">Bocaditos</button>
+        </div>
+    </div>
+
     <main>
-        <h1 align="center" class="purple-text" >Nuestra Colección</h1>
         <section>
             <div class="colect--container">
-                <div class="colect--menu">
+                <!--<div class="colect--menu">
                     <a class="clt-active" href="#">Tortas temáticas</a>
                     <a href="#">Tortas para bodas</a>
-                </div>
+                </div>-->
                 <div class="colect--cakes">
                     <div class="cakes--container">
                         <br><br><br>
@@ -57,7 +70,7 @@
     </main>
 
     <br>
-    <footer>
+    <footer> <link rel="stylesheet" href="css/footer.css">
         <div class="footer--container">
             <img src="img/pini_cake_logo.png" alt="Pini Cake">
             <p class="purple-text" >© 2021 PINI CAKE. Todos los derechos reservados </p>
