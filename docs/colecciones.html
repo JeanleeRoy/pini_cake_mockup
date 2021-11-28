@@ -53,8 +53,14 @@
 
     <main class="store--main">
         <link rel="stylesheet" href="./css/store/options.css">
-        <section class="store--options">
-            <div class="store--filters">
+        <section class="store--options" id="menuOption">
+
+            <div class="store--head-options">
+                <svg class="btn" onclick="hideMobileOptions()" fill="#D8587E" stroke="#D8587E" width="32" height="32"><path stroke-width=".2" d="M6 15.667l9 9L16.333 23 10 16.667h16v-2H10l6.333-6.333L15 6.667z"/></svg>
+                <p><span id="storeOptionText">Filtrar</span> por</p>
+            </div>
+            
+            <div class="store--filters" id="storeFilters">
                 <div class="store--filter">
                     <div class="filter-name" onclick="toggleSubmenu('fltPrecio')">
                         Precio
@@ -126,14 +132,14 @@
         </section>
 
         <section class="store--option-menu is-sticky">
-            <button class="btn store--option-item-menu">
+            <div class="btn store--option-item-menu" onclick="showMobileOptions('filters')">
                 Filtrar
                 <svg class="store-icon store-icon--option" viewBox="0 0 32 32"><path d="M15.9 22h16.1v2h-16.1c-0.479 2.301-2.491 4.005-4.9 4.005s-4.42-1.704-4.894-3.973l-0.006-0.032h-6.1v-2h6.1c0.479-2.301 2.491-4.005 4.9-4.005s4.421 1.704 4.894 3.973l0.006 0.032zM18.1 8c0.48-2.301 2.491-4.005 4.9-4.005s4.421 1.704 4.894 3.973l0.006 0.032h4.1v2h-4.1c-0.48 2.301-2.491 4.005-4.9 4.005s-4.421-1.704-4.894-3.973l-0.006-0.033h-18.1v-2h18.1zM23 12c1.657 0 3-1.343 3-3s-1.343-3-3-3v0c-1.657 0-3 1.343-3 3s1.343 3 3 3v0zM11 26c1.657 0 3-1.343 3-3s-1.343-3-3-3v0c-1.657 0-3 1.343-3 3s1.343 3 3 3v0z"></path></svg>
-            </button>
-            <button class="btn store--option-item-menu">
+            </div>
+            <div class="btn store--option-item-menu" onclick="showMobileOptions('order')">
                 Ordenar
                 <svg class="store-icon store-icon--option" viewBox="0 0 32 32"><path d="M6.857 23.527l-3.705-3.705-1.616 1.616 6.464 6.464 6.464-6.462-1.616-1.616-3.705 3.701v-18.953h-2.286v18.955zM22.857 8.473l-3.705 3.705-1.616-1.616 6.464-6.464 0.809 0.807 5.655 5.657-1.616 1.616-3.705-3.703v18.953h-2.286v-18.955z"></path></svg>
-            </button>
+            </div>
         </section>
 
         <section>

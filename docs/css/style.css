@@ -38,6 +38,10 @@ a {
     display: none;
 }
 
+.stop-scroll {
+    overflow: hidden!important;
+}
+
 .yellow-text { color: #f48c06; }
 .red-text { color: #f40606; }
 .purple-text { color: #91647B; }
