@@ -51,7 +51,91 @@
         </div>
     </div>
 
-    <main>
+    <main class="store--main">
+        <link rel="stylesheet" href="./css/store/options.css">
+        <section class="store--options">
+            <div class="store--filters">
+                <div class="store--filter">
+                    <div class="filter-name" onclick="toggleSubmenu('fltPrecio')">
+                        Precio
+                        <svg class="store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
+                    </div>
+                    <div id="fltPrecio" class="filter-setting hide">
+                        <div class="flt-price-cnt">
+                            <div style="margin-right: .8rem;">
+                                <label for="flt-price-from">Desde</label>
+                                <input type="number" id="flt-price-from" min="10" value="15">
+                            </div>
+                            <div>
+                                <label for="flt-price-to">Hasta</label>
+                                <input type="number" id="flt-price-to" min="20" value="500">
+                            </div>
+                        </div>
+                        <button class="btn" >Establecer</button>
+                    </div>
+                </div>
+                <div class="store--filter">
+                    <div class="filter-name" onclick="toggleSubmenu('fltSabor')">
+                        Sabor
+                        <svg class="store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
+                    </div>
+                    <div id="fltSabor" class="filter-setting hide">
+                        <div>Chocolate</div>
+                        <div>Vainilla</div>
+                        <div>Red velvet</div>
+                        <div>Zanahoria</div>
+                        <div>Marmoleado</div>
+                    </div>
+                </div>
+                <div class="store--filter">
+                    <div class="filter-name" onclick="toggleSubmenu('fltRelleno')">
+                        Relleno
+                        <svg class="store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
+                    </div>
+                    <div id="fltRelleno" class="filter-setting hide">
+                        <div>Fudge</div>
+                        <div>Manjar blanco</div>
+                        <div>Ganache</div>
+                        <div>Mermelada</div>
+                        <div>Chantilly</div>
+                    </div>
+                </div>
+                <div class="store--filter">
+                    <div class="filter-name" onclick="toggleSubmenu('fltTamanho')">
+                        Tamaño
+                        <svg class="store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
+                    </div>
+                    <div id="fltTamanho" class="filter-setting hide">
+                        <div>Grande</div>
+                        <div>Mediano</div>
+                        <div>Pequeño</div>
+                    </div>
+                </div>
+            </div>
+            <div class="store--order">
+                <div class="order--name" onclick="toggleSubmenu('orderProds')">
+                    Ordenar por
+                    <svg class="store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
+                </div>
+                <div id="orderProds" class="order--options hide">
+                    <div>Más recientes</div>
+                    <div>Menor precio</div>
+                    <div>Mayor precio</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="store--option-menu is-sticky">
+            <button class="btn store--option-item-menu">
+                Filtrar
+                <svg class="store-icon store-icon--option" viewBox="0 0 32 32"><path d="M15.9 22h16.1v2h-16.1c-0.479 2.301-2.491 4.005-4.9 4.005s-4.42-1.704-4.894-3.973l-0.006-0.032h-6.1v-2h6.1c0.479-2.301 2.491-4.005 4.9-4.005s4.421 1.704 4.894 3.973l0.006 0.032zM18.1 8c0.48-2.301 2.491-4.005 4.9-4.005s4.421 1.704 4.894 3.973l0.006 0.032h4.1v2h-4.1c-0.48 2.301-2.491 4.005-4.9 4.005s-4.421-1.704-4.894-3.973l-0.006-0.033h-18.1v-2h18.1zM23 12c1.657 0 3-1.343 3-3s-1.343-3-3-3v0c-1.657 0-3 1.343-3 3s1.343 3 3 3v0zM11 26c1.657 0 3-1.343 3-3s-1.343-3-3-3v0c-1.657 0-3 1.343-3 3s1.343 3 3 3v0z"></path></svg>
+            </button>
+            <button class="btn store--option-item-menu">
+                Ordenar
+                <svg class="store-icon store-icon--option" viewBox="0 0 32 32"><path d="M6.857 23.527l-3.705-3.705-1.616 1.616 6.464 6.464 6.464-6.462-1.616-1.616-3.705 3.701v-18.953h-2.286v18.955zM22.857 8.473l-3.705 3.705-1.616-1.616 6.464-6.464 0.809 0.807 5.655 5.657-1.616 1.616-3.705-3.703v18.953h-2.286v-18.955z"></path></svg>
+            </button>
+        </section>
+
         <section>
             <div class="colect--container">
                 <!--<div class="colect--menu">
@@ -62,6 +146,11 @@
                     <div class="cakes--container">
                         <br><br><br>
                         <center><h3 class="purple-text">!Muy Pronto!</h3></center>
+                        <center>
+                            <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#D8587E">
+                                <g fill="none" fill-rule="evenodd"> <g transform="translate(1 1)" stroke-width="2"> <circle stroke-opacity=".5" cx="18" cy="18" r="18"/> <path d="M36 18c0-9.94-8.06-18-18-18"> <animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/> </path> </g> </g>
+                            </svg>
+                        </center>
                         <br><br><br><br>
                     </div>
                 </div>
@@ -70,6 +159,7 @@
     </main>
 
     <br>
+    <br><br><br><br><br><br><br><br>
     <footer> <link rel="stylesheet" href="css/footer.css">
         <div class="footer--container">
             <img src="img/pini_cake_logo.png" alt="Pini Cake">
@@ -79,4 +169,5 @@
 
 </body>
 <script src="./script/app.js"></script>
+<script src="./script/store.js"></script>
 </html>

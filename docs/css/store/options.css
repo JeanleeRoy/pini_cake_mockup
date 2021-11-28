@@ -1,0 +1,124 @@
+.store--options {
+    display: flex;
+    width: 100%;
+    max-width: 1050px;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 1rem;
+    padding: .3rem 1rem;
+    border: 1px solid #e6d9dd;
+    border-radius: 12px;
+    background-color: white;
+}
+
+.store--filters, .store--order {
+    display: flex;
+    width: fit-content;
+    color: #706767;
+}
+
+.store--filter,.store--order {
+    position: relative;
+    padding: .5rem .3rem;
+    margin: 0 .5rem;
+}
+
+.filter-name,.order--name,
+.filter-setting,.order--options {
+    cursor: pointer;
+}
+
+.filter-setting,.order--options {
+    z-index: 10;
+    position: absolute;
+    min-width: 100%;
+    top: 3rem;
+    left: -0.5rem;
+    padding: .4rem .7rem .5rem;
+    background: white;
+    box-shadow: 1px 1px 5px #d8d8d8;
+}
+
+.order--options {
+    width: max-content;
+}
+
+.filter-setting > div,
+.order--options > div,
+.store--option-item-menu {
+    padding: .5rem;
+    color: #575757;
+    font-size: .91rem;
+}
+
+.flt-price-cnt {
+    display: flex;
+    padding-bottom: .5rem;
+}
+
+#fltPrecio label {
+    font-size: .8rem;
+}
+
+#fltPrecio input {
+    display: inline-block;
+    width: 100px;
+    padding-left: .5rem;
+    color: #575757;
+    outline: none;
+}
+
+#fltPrecio .btn {
+    margin: .3rem;
+    padding: .2rem .6rem;
+    color: #D8587E;
+    border-radius: 10px;
+    border: 1px solid #D8587E;
+}
+
+.store--option-menu {
+    display: none;
+    background-color: white;
+    border: 1px solid #e6d9dd;
+    z-index: 5;
+    padding: .5rem;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%);
+}
+
+.store--option-menu.is-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+/* Icons */
+.store-icon {
+    margin: 0 0 -3px 3px;
+    width: 18px;
+    height: 18px;
+}
+.store-icon--chevron {
+    stroke: #d1b7bf;
+}
+.store-icon--option {
+    fill: #D8587E;
+}
+/* End Icons */
+
+@media screen and (max-width: 680px) {
+    .store--options {
+        display: none;
+    }
+    .store--option-menu {
+        display: flex;
+        width: 100%;
+    }
+    .store--option-item-menu {
+        width: 100%;
+        font-size: .98rem;
+        border-right: 1px solid #d1b7bf;
+    }
+    .store--option-item-menu:last-child {
+        border-right: none;
+    }
+}
