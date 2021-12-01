@@ -54,3 +54,13 @@ const verifyClickOutside = (e) => {
 }
 
 document.addEventListener('click', verifyClickOutside);
+
+// Handle submenu mobile side effect
+window.onresize = (evnt) => {
+    if (window.innerWidth > 768) {
+        menuOption.style.display = 'flex';
+        menuFilters.style.display = 'flex';
+    } else {
+        menuOption.style.display = 'none';
+    }
+}
