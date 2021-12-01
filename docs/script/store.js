@@ -31,7 +31,6 @@ const showMobileOptions = (option) => {
 const hideMobileOptions = () => {
     document.body.classList.remove('stop-scroll');
     menuOption.style.display = 'none';
-    console.log(optionText.innerText);
     if (optionText.innerText === 'Filtrar')
         menuFilters.style.display = 'none';
     if (optionText.innerText === 'Ordenar')
@@ -41,6 +40,7 @@ const hideMobileOptions = () => {
 const hideSubmenus = () => {
     for (let flt of filters)
         flt.classList.add('hide');
+    if (!orderProds.classList.contains('hide'))
     orderProds.classList.add('hide');
 }
 
@@ -57,10 +57,14 @@ document.addEventListener('click', verifyClickOutside);
 
 // Handle submenu mobile side effect
 window.onresize = (evnt) => {
+    hideSubmenus();
+    if (document.body.classList.contains('stop-scroll'))
+        document.body.classList.remove('stop-scroll');
     if (window.innerWidth > 768) {
         menuOption.style.display = 'flex';
         menuFilters.style.display = 'flex';
     } else {
         menuOption.style.display = 'none';
+        menuFilters.style.display = 'none';
     }
 }
