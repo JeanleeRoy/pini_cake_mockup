@@ -37,3 +37,20 @@ const hideMobileOptions = () => {
     if (optionText.innerText === 'Ordenar')
         orderProds.classList.add('hide');
 }
+
+const hideSubmenus = () => {
+    for (let flt of filters)
+        flt.classList.add('hide');
+    orderProds.classList.add('hide');
+}
+
+// Check if the click is outside the menu options
+const verifyClickOutside = (e) => {
+    if (window.innerWidth > 768) {
+        if (!e.target.classList.contains('store') && 
+            !e.target.parentNode.classList.contains('store'))
+            hideSubmenus();
+    }
+}
+
+document.addEventListener('click', verifyClickOutside);

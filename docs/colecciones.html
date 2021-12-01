@@ -62,18 +62,18 @@
             </div>
             
             <div class="store--filters" id="storeFilters">
-                <div class="store--filter">
-                    <div class="filter-name" onclick="toggleSubmenu('fltPrecio')">
+                <div class="store store--filter">
+                    <div class="store filter-name" onclick="toggleSubmenu('fltPrecio')">
                         Precio
-                        <svg class="store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
+                        <svg class="store store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
                     </div>
-                    <div id="fltPrecio" class="filter-setting hide">
-                        <div class="flt-price-cnt">
-                            <div style="margin-right: .8rem;">
+                    <div id="fltPrecio" class="store filter-setting hide">
+                        <div class="store flt-price-cnt">
+                            <div class="store" style="margin-right: .8rem;">
                                 <label for="flt-price-from">Desde</label>
                                 <input type="number" id="flt-price-from" min="10" value="15">
                             </div>
-                            <div>
+                            <div class="store">
                                 <label for="flt-price-to">Hasta</label>
                                 <input type="number" id="flt-price-to" min="20" value="500">
                             </div>
@@ -81,12 +81,12 @@
                         <button class="btn" >Establecer</button>
                     </div>
                 </div>
-                <div class="store--filter">
-                    <div class="filter-name" onclick="toggleSubmenu('fltSabor')">
+                <div class="store store--filter">
+                    <div class="store filter-name" onclick="toggleSubmenu('fltSabor')">
                         Sabor
-                        <svg class="store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
+                        <svg class="store store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
                     </div>
-                    <div id="fltSabor" class="filter-setting hide">
+                    <div id="fltSabor" class="store filter-setting hide">
                         <div>Chocolate</div>
                         <div>Vainilla</div>
                         <div>Red velvet</div>
@@ -94,12 +94,12 @@
                         <div>Marmoleado</div>
                     </div>
                 </div>
-                <div class="store--filter">
-                    <div class="filter-name" onclick="toggleSubmenu('fltRelleno')">
+                <div class="store store--filter">
+                    <div class="store filter-name" onclick="toggleSubmenu('fltRelleno')">
                         Relleno
-                        <svg class="store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
+                        <svg class="store store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
                     </div>
-                    <div id="fltRelleno" class="filter-setting hide">
+                    <div id="fltRelleno" class="store filter-setting hide">
                         <div>Fudge</div>
                         <div>Manjar blanco</div>
                         <div>Ganache</div>
@@ -107,24 +107,24 @@
                         <div>Chantilly</div>
                     </div>
                 </div>
-                <div class="store--filter">
-                    <div class="filter-name" onclick="toggleSubmenu('fltTamanho')">
+                <div class="store store--filter">
+                    <div class="store filter-name" onclick="toggleSubmenu('fltTamanho')">
                         Tamaño
-                        <svg class="store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
+                        <svg class="store store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
                     </div>
-                    <div id="fltTamanho" class="filter-setting hide">
+                    <div id="fltTamanho" class="store filter-setting hide">
                         <div>Grande</div>
                         <div>Mediano</div>
                         <div>Pequeño</div>
                     </div>
                 </div>
             </div>
-            <div class="store--order">
-                <div class="order--name" onclick="toggleSubmenu('orderProds')">
+            <div class="store store--order">
+                <div class="store order--name" onclick="toggleSubmenu('orderProds')">
                     Ordenar por
-                    <svg class="store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
+                    <svg class="store store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
                 </div>
-                <div id="orderProds" class="order--options hide">
+                <div id="orderProds" class="store order--options hide">
                     <div>Más recientes</div>
                     <div>Menor precio</div>
                     <div>Mayor precio</div>
