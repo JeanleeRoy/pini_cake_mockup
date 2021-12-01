@@ -21,6 +21,7 @@
     min-height: 150px;
     padding: 0 .5rem;
     max-width: 200px;
+    min-width: 105px;
     margin: .5%;
 }
 
@@ -81,6 +82,12 @@
     }
 }
 
+@media screen and (max-width: 480px) {
+    .product-image-container {
+        min-height: auto;
+    }
+}
+
 @media screen and (min-width: 768.5px) {
     .store--product {
         max-width: 210px;
@@ -92,5 +99,20 @@
     }
     .product-image-container img {
         max-width: 210px;
+    }
+}
+
+
+@media screen and (min-width: 1100px) {
+    .store--product {
+        max-width: 225px;
+        margin: 0 .4rem 1rem;
+    }
+    .product-image-container {
+        height: 225px;
+        width: 225px;
+    }
+    .product-image-container img {
+        max-width: 225px;
     }
 }
