@@ -145,102 +145,7 @@
 
         <section>
             <div class="store--products">
-                <div class="store--product-container">
-                    <div class="store--product">
-                        <a href="" >
-                            <div class="product-image-container">
-                                <img src="img/home/cake-003.jpg" alt="">
-                            </div>
-                            <div class="product-detail-container">
-                                <p class="product-name">
-                                    Cake Terciopelo Rojo
-                                </p>
-                                <div class="product-price">
-                                    <span class="main-price">S/ 83.00</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="store--product">
-                        <a href="" >
-                            <div class="product-image-container">
-                                <img src="img/home/cake-002.jpg" alt="">
-                            </div>
-                            <div class="product-detail-container">
-                                <p class="product-name">
-                                    Mini Choco Birthday Cake
-                                </p>
-                                <div class="product-price">
-                                    <span class="main-price">S/ 83.00</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="store--product">
-                        <a href="" >
-                            <div class="product-image-container">
-                                <img src="img/products/cake-007.jpg" alt="">
-                            </div>
-                            <div class="product-detail-container">
-                                <p class="product-name">
-                                    Torta Floral
-                                </p>
-                                <div class="product-price">
-                                    <span class="main-price">S/ 83.00</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="store--product">
-                        <a href="" >
-                            <div class="product-image-container">
-                                <img src="img/products/cake-006.jpg" alt="">
-                            </div>
-                            <div class="product-detail-container">
-                                <p class="product-name">
-                                    Torta 3 leches Classic
-                                </p>
-                                <div class="product-price">
-                                    <span class="main-price">S/ 83.00</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="store--product">
-                        <a href="" >
-                            <div class="product-image-container">
-                                <img src="img/products/cake-005.jpg" alt="">
-                            </div>
-                            <div class="product-detail-container">
-                                <p class="product-name">
-                                    Kitkat Pig cake 
-                                </p>
-                                <div class="product-price">
-                                    <span class="main-price">S/ 83.00</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="store--product">
-                        <a href="" >
-                            <div class="product-image-container">
-                                <img src="img/products/cake-004.jpg" alt="">
-                            </div>
-                            <div class="product-detail-container">
-                                <p class="product-name">
-                                    Torta 2 gallos
-                                </p>
-                                <div class="product-price">
-                                    <span class="main-price">S/ 83.00</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                <div class="store--product-container" id="store-container">                    
 
                 </div>
                 <div style="display: none;" class="colect--cakes">
@@ -256,7 +161,26 @@
                     </div>
                 </div>
             </div>
+
+            <template id="product-template">
+                <div class="store--product">
+                    <a>
+                        <div class="product-image-container">
+                            <img class="product-image" src="" alt="">
+                        </div>
+                        <div class="product-detail-container">
+                            <p class="product-name">
+                                
+                            </p>
+                            <div class="product-price">
+                                <span class="main-price"> </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </template>
         </section>
+
     </main>
 
     <br><br><br>
@@ -269,5 +193,6 @@
 
 </body>
 <script src="./script/app.js"></script>
-<script src="./script/store.js"></script>
+<script src="./script/store.menu.js"></script>
+<script src="./script/store.products.js"></script>
 </html>
