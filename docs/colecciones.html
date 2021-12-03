@@ -67,19 +67,19 @@
                         Precio
                         <svg class="store store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
                     </div>
-                    <div id="fltPrecio" class="store filter-setting hide">
+                    <form id="fltPrecio" class="store filter-setting hide" onsubmit="handlePriceFilter(event)" >
                         <div class="store flt-price-cnt">
                             <div class="store" style="margin-right: .8rem;">
                                 <label for="flt-price-from">Desde</label>
-                                <input type="number" id="flt-price-from" min="10" value="15">
+                                <input type="number" id="flt-price-from" min="10" value="15" step="0.1">
                             </div>
                             <div class="store">
                                 <label for="flt-price-to">Hasta</label>
-                                <input type="number" id="flt-price-to" min="20" value="500">
+                                <input type="number" id="flt-price-to" min="20" step="0.1">
                             </div>
                         </div>
                         <button class="btn" >Establecer</button>
-                    </div>
+                    </form>
                 </div>
                 <div class="store store--filter">
                     <div class="store filter-name" onclick="toggleSubmenu('fltSabor')">
@@ -193,6 +193,8 @@
 
 </body>
 <script src="./script/app.js"></script>
+<!--Keep this order-->
 <script src="./script/store.menu.js"></script>
 <script src="./script/store.products.js"></script>
+<script src="./script/store.actions.js"></script>
 </html>

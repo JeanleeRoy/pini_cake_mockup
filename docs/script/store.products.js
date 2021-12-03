@@ -4,10 +4,13 @@ const $storeContainer = document.getElementById('store-container');
 const $template = document.getElementById('product-template').content;
 const $fragment = document.createDocumentFragment();
 
+let baseProducts = []
+
 const fetchProducts = () => {
     fetch(baseUrl)
         .then(res => res.json())
         .then(data => {
+            baseProducts = data;
             displayProducts(data);
         })
         .catch(err => {
