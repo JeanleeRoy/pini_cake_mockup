@@ -4,6 +4,8 @@ const optionText = document.getElementById('storeOptionText');
 const filters = document.getElementsByClassName('filter-setting');
 const orderProds = document.getElementById('orderProds')
 
+let pre_width = window.innerWidth;
+
 const toggleSubmenu = (submenuId) => {
     for (let flt of filters) {
         if (flt.id === submenuId)
@@ -57,6 +59,9 @@ document.addEventListener('click', verifyClickOutside);
 
 // Handle submenu mobile side effect
 window.onresize = (evnt) => {
+    // Prevent change on vertical resize
+    if (pre_width===evnt.target.innerWidth) return;
+    pre_width = evnt.target.innerWidth
     hideSubmenus();
     if (document.body.classList.contains('stop-scroll'))
         document.body.classList.remove('stop-scroll');
