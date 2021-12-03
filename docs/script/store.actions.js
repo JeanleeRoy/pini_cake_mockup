@@ -6,6 +6,8 @@ const $max_price = document.getElementById('flt-price-to');
 let modProducts = baseProducts;
 // Flag to check for any cahnges to the products
 let isChanged = false;
+// Flag to check for any cahnges to the price range
+let changePrice = false;
 
 const cleanContainer = () => $storeContainer.textContent = '';
 
@@ -24,11 +26,28 @@ const setPriceValues = (min, max) => {
 
 const handlePriceFilter = (event) => {
     event.preventDefault();
+    if (window.innerWidth <= 768 && !changePrice) {
+        return;
+    }
     min = parseFloat($min_price.value) || 10;
     max = parseFloat($max_price.value);
     let products = baseProducts;
     let result = filterByPrice(products, min, max);
-    setChanges(result);
+    cleanContainer();
+    displayProducts(result);
+    hideSubmenus();
+    if (window.innerWidth <= 768 && changePrice) {
+        hideMobileOptions();
+    }
+}
+
+const handlePriceMobile = () => {
+    if (window.innerWidth <= 768) {
+        changePrice = true;
+        e = event || window.event;
+        handlePriceFilter(e);
+        changePrice = false;
+    }
 }
 
 const filterByPrice = (products, min_, max_) => {
