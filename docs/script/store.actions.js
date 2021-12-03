@@ -6,17 +6,40 @@ const $max_price = document.getElementById('flt-price-to');
 let modProducts = baseProducts;
 // Flag to check for any cahnges to the products
 let isChanged = false;
-// Flag to check for any cahnges to the price range
-let changePrice = false;
 
 const cleanContainer = () => $storeContainer.textContent = '';
 
 const setChanges = (products) => {
     cleanContainer();
     displayProducts(products);
-    hideSubmenus();
     modProducts = products;
     isChanged = true;
+    if (window.innerWidth <= 768) {
+        setTimeout(() => {
+            hideSubmenus();
+            hideMobileOptions();
+        }, 180);
+    } else {
+        hideSubmenus();
+    }
+}
+
+const handleFilter = (option, value) => {
+    let result = baseProducts;
+    result = filterByFeature(option, value, result);
+    setChanges(result);
+}
+
+const filterByFeature = (feature, value, products) => {
+    let result = products.filter(product => {
+        if (feature === 'flavor')
+        return product.flavors[value];
+        if (feature === 'filling')
+        return product.fillings[value];
+        if (feature === 'size')
+        return product.sizes_detail[value].state;
+    })
+    return result;
 }
 
 const setPriceValues = (min, max) => {
@@ -26,28 +49,11 @@ const setPriceValues = (min, max) => {
 
 const handlePriceFilter = (event) => {
     event.preventDefault();
-    if (window.innerWidth <= 768 && !changePrice) {
-        return;
-    }
     min = parseFloat($min_price.value) || 10;
     max = parseFloat($max_price.value);
     let products = baseProducts;
     let result = filterByPrice(products, min, max);
-    cleanContainer();
-    displayProducts(result);
-    hideSubmenus();
-    if (window.innerWidth <= 768 && changePrice) {
-        hideMobileOptions();
-    }
-}
-
-const handlePriceMobile = () => {
-    if (window.innerWidth <= 768) {
-        changePrice = true;
-        e = event || window.event;
-        handlePriceFilter(e);
-        changePrice = false;
-    }
+    setChanges(result);
 }
 
 const filterByPrice = (products, min_, max_) => {

@@ -67,22 +67,19 @@
                         Precio
                         <svg class="store store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
                     </div>
-                    <div id="fltPrecio" class="store filter-setting hide" >
-                        <form onsubmit="handlePriceFilter(event)">
-                            <div class="store flt-price-cnt">
-                                <div class="store" style="margin-right: .8rem;">
-                                    <label class="store" for="flt-price-from">Desde</label>
-                                    <input class="store" type="number" id="flt-price-from" min="10" value="15" step="0.1" required>
-                                </div>
-                                <div class="store">
-                                    <label class="store" for="flt-price-to">Hasta</label>
-                                    <input class="store" class="store" type="number" id="flt-price-to" min="20" step="0.1">
-                                </div>
+                    <form id="fltPrecio" class="store filter-setting hide" onsubmit="handlePriceFilter(event)" >
+                        <div class="store flt-price-cnt">
+                            <div class="store" style="margin-right: .8rem;">
+                                <label class="store" for="flt-price-from">Desde</label>
+                                <input class="store" type="number" id="flt-price-from" min="10" value="15" step="0.1" required>
                             </div>
-                            <button type="submit" class="btn fltPriceBtn" >Establecer</button>
-                        </form>
-                        <button class="btn fltPriceMobileBtn" onclick="handlePriceMobile()" >Establecer</button>
-                    </div>
+                            <div class="store">
+                                <label class="store" for="flt-price-to">Hasta</label>
+                                <input class="store" type="number" id="flt-price-to" min="20" step="0.1">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn" >Establecer</button>
+                    </form>
                 </div>
                 <div class="store store--filter">
                     <div class="store filter-name" onclick="toggleSubmenu('fltSabor')">
@@ -90,11 +87,11 @@
                         <svg class="store store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
                     </div>
                     <div id="fltSabor" class="store filter-setting hide">
-                        <div>Chocolate</div>
-                        <div>Vainilla</div>
-                        <div>Red velvet</div>
-                        <div>Zanahoria</div>
-                        <div>Marmoleado</div>
+                        <div onclick="handleFilter('flavor', 'chocolate')" >Chocolate</div>
+                        <div onclick="handleFilter('flavor', 'vainilla')">Vainilla</div>
+                        <div onclick="handleFilter('flavor', 'red_velvet')">Red velvet</div>
+                        <div onclick="handleFilter('flavor', 'zanahoria')">Zanahoria</div>
+                        <div onclick="handleFilter('flavor', 'marmoleado')">Marmoleado</div>
                     </div>
                 </div>
                 <div class="store store--filter">
@@ -103,11 +100,11 @@
                         <svg class="store store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
                     </div>
                     <div id="fltRelleno" class="store filter-setting hide">
-                        <div>Fudge</div>
-                        <div>Manjar blanco</div>
-                        <div>Ganache</div>
-                        <div>Mermelada</div>
-                        <div>Chantilly</div>
+                        <div onclick="handleFilter('filling', 'fudge')">Fudge</div>
+                        <div onclick="handleFilter('filling', 'manjar_blanco')">Manjar blanco</div>
+                        <div onclick="handleFilter('filling', 'ganache')">Ganache</div>
+                        <div onclick="handleFilter('filling', 'mermelada')">Mermelada</div>
+                        <div onclick="handleFilter('filling', 'chantilly')">Chantilly</div>
                     </div>
                 </div>
                 <div class="store store--filter">
@@ -116,9 +113,9 @@
                         <svg class="store store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
                     </div>
                     <div id="fltTamanho" class="store filter-setting hide">
-                        <div>Grande</div>
-                        <div>Mediano</div>
-                        <div>Pequeño</div>
+                        <div onclick="handleFilter('size', 'big')" >Grande</div>
+                        <div onclick="handleFilter('size', 'medium')" >Mediano</div>
+                        <div onclick="handleFilter('size', 'small')" >Pequeño</div>
                     </div>
                 </div>
             </div>

@@ -182,13 +182,4 @@
         font-size: .97rem;
         border-bottom: 1px solid #d1b7bf;
     }
-    .fltPriceBtn {
-        display: none;
-    }
-}
-
-@media screen and (min-width: 768.5px) {
-    .fltPriceMobileBtn {
-        display: none;
-    }
 }
