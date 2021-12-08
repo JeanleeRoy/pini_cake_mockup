@@ -101,6 +101,30 @@
     display: none;
 }
 
+.active-options {
+    padding: 0 .8rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: .8rem;
+    max-width: 1050px;
+}
+
+.act-opt {
+    display: flex;
+    align-items: center;
+    background-color: #D8587E;
+    width: fit-content;
+    font-size: .8rem;
+    padding: .15rem .5rem;
+    border-radius: .5rem;
+    color: hsla(0, 0%, 100%, .8);
+    margin-right: .5rem;
+    margin-bottom: .3rem;
+}
+
+.act-opt:last-child { margin-right: 0 }
+
 /* Icons */
 .store-icon {
     margin: 0 0 -3px 3px;
