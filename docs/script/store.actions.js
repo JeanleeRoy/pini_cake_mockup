@@ -12,7 +12,7 @@ let prices = {
     min: 15,
     max: null
 }
-
+let order = 'desc';
 let contOptions = 0;
 
 let options = [
@@ -148,3 +148,25 @@ const displayOptions = () => {
 }
 
 displayOptions();
+
+
+/*---- Sort Option ----*/
+
+const handleSort = (opt) => {
+    console.log("in")
+    let result = resultOptions();
+    result = filterByPrice(result, prices.min, prices.max);
+    result = applySort(opt, result);
+    setChanges(result);
+}
+
+const applySort = (opt, products) => {
+    let c;
+    let result = products.sort((a,b) => {
+        if (opt === 'asc')
+            return a.prices.base - b.prices.base
+        if (opt === 'desc')
+            return b.prices.base - a.prices.base
+    })
+    return result;
+}

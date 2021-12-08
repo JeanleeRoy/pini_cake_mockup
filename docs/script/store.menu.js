@@ -49,7 +49,8 @@ const hideSubmenus = () => {
 // Check if the click is outside the menu options
 const verifyClickOutside = (e) => {
     if (window.innerWidth > 768) {
-        if (!e.target.classList.contains('store') && 
+        if (!e.target.classList.contains('store'))
+        if (e.target.parentNode &&
             !e.target.parentNode.classList.contains('store'))
             hideSubmenus();
     }
