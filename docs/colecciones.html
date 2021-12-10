@@ -66,12 +66,13 @@
                     <div class="store filter-name" onclick="toggleSubmenu('fltPrecio')">
                         Precio
                         <svg class="store store-icon--chevron" width="12" height="12" viewBox="0 0 12 12"><path fill-opacity=".45" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
+                        <div class="price-indicador" id="price-indicador"></div>
                     </div>
                     <form id="fltPrecio" class="store filter-setting hide" onsubmit="handlePriceFilter(event)" >
                         <div class="store flt-price-cnt">
                             <div class="store" style="margin-right: .8rem;">
                                 <label class="store" for="flt-price-from">Desde</label>
-                                <input class="store" type="number" id="flt-price-from" min="10" value="15" step="0.1" required>
+                                <input class="store" type="number" id="flt-price-from" min="15" value="15" step="0.1" required>
                             </div>
                             <div class="store">
                                 <label class="store" for="flt-price-to">Hasta</label>

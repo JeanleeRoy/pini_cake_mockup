@@ -3,6 +3,7 @@
 const $min_price = document.getElementById('flt-price-from');
 const $max_price = document.getElementById('flt-price-to');
 const activeOptions = document.getElementById('activeOptions');
+const priceIndicador = document.getElementById('price-indicador');
 
 let modProducts = [];
 // Flag to check for any cahnges to the products
@@ -12,7 +13,7 @@ let prices = {
     min: 15,
     max: null
 }
-let order = 'desc';
+let order = null;
 let contOptions = 0;
 
 let options = [
@@ -25,9 +26,7 @@ let options = [
 
 const cleanContainer = () => $storeContainer.textContent = '';
 
-const setChanges = (products) => {
-    cleanContainer();
-    displayProducts(products);
+const closeAllMenus = () => {
     if (window.innerWidth <= 768) {
         setTimeout(() => {
             hideSubmenus();
@@ -38,12 +37,19 @@ const setChanges = (products) => {
     }
 }
 
+const setChanges = (products) => {
+    cleanContainer();
+    displayProducts(products);
+    closeAllMenus();
+}
+
 const handleFilter = (option, value) => {
     let result = isChanged ? modProducts : baseProducts;
     addOption(option, value);
     result = filterByFeature(option, value, result);
     modProducts = result;
     result = filterByPrice(result, prices.min, prices.max);
+    result = applySort(order, result);
     setChanges(result);
     isChanged = true;
     displayOptions();
@@ -68,12 +74,20 @@ const setPriceValues = (min, max) => {
     prices.max = max;
 }
 
+const handlePriceIndicador = (min, max) => {
+    if (min > 15 || max)
+        priceIndicador.style.opacity = 1;
+    else priceIndicador.style.opacity = 0;
+}
+
 const handlePriceFilter = (event) => {
     event.preventDefault();
-    min = parseFloat($min_price.value) || 10;
+    min = parseFloat($min_price.value) || 15;
     max = parseFloat($max_price.value);
     let products = resultOptions();
     let result = filterByPrice(products, min, max);
+    result = applySort(order, result);
+    handlePriceIndicador(min, max);
     setChanges(result);
 }
 
@@ -119,6 +133,7 @@ const removeOption = (id) => {
     });
     modProducts = result;
     result = filterByPrice(result, prices.min, prices.max);
+    result = applySort(order, result);
     displayOptions();
     setChanges(result);
 }
@@ -153,7 +168,10 @@ displayOptions();
 /*---- Sort Option ----*/
 
 const handleSort = (opt) => {
-    console.log("in")
+    if (opt === order) {
+        closeAllMenus();
+        return;
+    }
     let result = resultOptions();
     result = filterByPrice(result, prices.min, prices.max);
     result = applySort(opt, result);
@@ -161,7 +179,9 @@ const handleSort = (opt) => {
 }
 
 const applySort = (opt, products) => {
-    let c;
+    console.log(opt, order);
+    if (opt === null) return products;
+    order = opt;
     let result = products.sort((a,b) => {
         if (opt === 'asc')
             return a.prices.base - b.prices.base

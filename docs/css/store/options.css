@@ -101,6 +101,18 @@
     display: none;
 }
 
+.price-indicador {
+    position: absolute;
+    top: 5px;
+    right: 6.7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #D8587E;
+    opacity: 0;
+    transition: all ease .4s;
+}
+
 .active-options {
     padding: 0 .8rem;
     display: flex;
@@ -185,6 +197,9 @@
         width: 100%;
         left: 0;
         box-shadow: initial;
+    }
+    .price-indicador {
+        transition: all ease .6s;
     }
     .store--head-options {
         display: block;
