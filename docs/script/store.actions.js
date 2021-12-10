@@ -87,7 +87,7 @@ const handlePriceFilter = (event) => {
     let products = resultOptions();
     let result = filterByPrice(products, min, max);
     result = applySort(order, result);
-    handlePriceIndicador(min, max);
+    setUrlPriceRange(min, max);
     setChanges(result);
 }
 
@@ -115,6 +115,7 @@ const addOption = (opt, val) => {
         if (optn.option === opt && optn.value===val)
             return;
     }
+    setUrlParam(opt, val);
     options.push({
         id: 'opt-'+contOptions++,
         option: opt,
@@ -128,8 +129,10 @@ const removeOption = (id) => {
         if (opt.id !== id) {
             result = filterByFeature(opt.option, opt.value, result);
             return true;
+        } else {
+            removeUrlParam(opt.option, opt.value);
+            return false;
         }
-        else return false;
     });
     modProducts = result;
     result = filterByPrice(result, prices.min, prices.max);
@@ -175,11 +178,11 @@ const handleSort = (opt) => {
     let result = resultOptions();
     result = filterByPrice(result, prices.min, prices.max);
     result = applySort(opt, result);
+    setUniqueUrlParam('sort',opt);
     setChanges(result);
 }
 
 const applySort = (opt, products) => {
-    console.log(opt, order);
     if (opt === null) return products;
     order = opt;
     let result = products.sort((a,b) => {
