@@ -80,6 +80,7 @@ const fetchProducts = () => {
 const displayProducts = (data) => {
     data.forEach(product => {
         let price = formatter.format(product.prices.base);
+        $template.querySelector("a").href = "/product/#/"+product.slug;
         $template.querySelector(".product-image").src = product.images[0].src;
         $template.querySelector(".product-name").innerText = product.name;
         $template.querySelector(".main-price").innerText = price;

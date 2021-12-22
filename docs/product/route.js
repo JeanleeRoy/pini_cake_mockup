@@ -1,8 +1,12 @@
 const baseUrl = 'https://raw.githubusercontent.com/JeanleeRoy/data/master/pinicake/shortdata.json';
 
-let path = window.location
-let prodImage = document.getElementById('product-image');
-let $detail = document.getElementById('product-detail')
+const $container = document.getElementById('product-container');
+const $template = document.getElementById('product-template').content;
+const $fragment = document.createDocumentFragment();
+const $loader = document.getElementById('loading');
+const $error = document.getElementById('error');
+
+let path = window.location;
 let product;
 
 const capitalize = (str) => {
@@ -25,31 +29,43 @@ const fetchProducts = (slug) => {
         .then(res => res.json())
         .then(data => {
             data.map(prod => {
-                if (prod.slug == slug)
-                product = prod;
+                if (prod.slug == slug) product = prod;
             })
             if (!product) {
-                console.log("404");
+                showNotFound();
                 return;
             }
             let price = formatter.format(product.prices.base);
-            console.log(price);
-            prodImage.src += product.images[0].src;
-            $detail.querySelector('#product-name').innerText = product.name;
-            $detail.querySelector('#price').innerText = price;
-            $detail.querySelector('#description').innerText = product.description;
-            $detail.querySelector('#flavors').innerText = getList('flavors');
-            $detail.querySelector('#fillings').innerText = getList('fillings');
+            $template.querySelector('#product-image').src += product.images[0].src;
+            $template.querySelector('#product-image').alt = product.slug;
+            $template.querySelector('#product-name').innerText = product.name;
+            $template.querySelector('#price').innerText = price;
+            $template.querySelector('#description').innerText = product.description;
+            $template.querySelector('#flavors').innerText = getList('flavors');
+            $template.querySelector('#fillings').innerText = getList('fillings');
+            let clone = document.importNode($template, true);
+            $fragment.appendChild(clone);
+            document.title = product.name;
+            setTimeout(() => {
+                hideLoading();
+                $container.appendChild($fragment);
+            }, 400);
         })
         .catch(err => {
-            console.log(err);
+            showNotFound();
         })
 }
 
-const formatter = new Intl.NumberFormat('es-PE', {
-    style: 'currency',
-    currency: 'PEN'
-});
+const hideLoading = () => {
+    $loader.style.display = "none";
+}
+
+const showNotFound = () => {
+    setTimeout(() => {
+        hideLoading();
+        $error.style.display = "block";
+    }, 800);
+} 
 
 
 /*  URL  */
@@ -58,6 +74,17 @@ if (path.hash && path.hash.slice(0,2) == '#/') {
     slug = path.hash.slice(2);
     fetchProducts(slug);
 } else {
-    //console.log(path.href)
-    //console.debug("Upss! No se encontró ningún producto")
+    showNotFound();
 }
+
+window.addEventListener('hashchange', () => {
+    window.location.reload(true);
+})
+
+
+/*  UTtility  */
+
+const formatter = new Intl.NumberFormat('es-PE', {
+    style: 'currency',
+    currency: 'PEN'
+});

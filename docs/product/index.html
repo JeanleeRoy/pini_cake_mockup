@@ -11,11 +11,11 @@
     <title>Producto</title>
 </head>
 <body>
-    <header style="box-shadow: 1px 0 2px #ccc;">
+    <header style="box-shadow: 1px 0 2px #ffb7f3;">
         <nav>
             <div class="menu--logo">
-                <a href="/" class="linkToIndex">
-                    <img src="../img/pini_cake_logo2.png" alt="Pini Cake">
+                <a href="/" class="linkToIndex" style="margin: 1rem 0;">
+                    <img height="54" src="../img/pini_cake_logo2.png" alt="Pini Cake">
                 </a>
             </div>
             <div class="menu--section">
@@ -36,7 +36,30 @@
     </header>
     <br>
 
-    <main class="main-container">
+    <main class="main-container" id="product-container">
+        <div id="loading" style="min-height: 500px">
+            <center>
+                <br><br><br>
+                <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#D8587E">
+                    <g fill="none" fill-rule="evenodd"> <g transform="translate(1 1)" stroke-width="2"> <circle stroke-opacity=".5" cx="18" cy="18" r="18"/> <path d="M36 18c0-9.94-8.06-18-18-18"> <animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/> </path> </g> </g>
+                </svg>
+                <br>
+                <p class="purple-text">Cargando...</p>
+                <br><br><br><br><br>
+            </center>
+        </div>
+
+        <div id="error" style="min-height: 500px; display: none;">
+            <center>
+                <br><br>
+                <img style="opacity: .7;" width="55px" src="../img/sad.png"/>
+                <br>
+                <p class="purple-text">Producto no encontrado</p>
+                <br><br><br><br><br>
+            </center>
+        </div>
+        
+        <template id="product-template">
         <div class="columns">
             <div class="column">
                 <picture class="product-image">
@@ -47,7 +70,7 @@
                 <div class="detail" id="product-detail">
                     <h1 class="rose-text" id="product-name" style="text-align: center;"></h1>
                     <br>
-                    <p class="price">Desde <b><span class="yellow-text" id="price"></span></b></p>
+                    <p class="price">Desde <b><span class="violet-text" id="price"></span></b></p>
                     <h3>Descripción</h3>
                     <p id="description"></p>
                     <br>
@@ -59,6 +82,7 @@
                 </div>
             </div>
         </div>
+        </template>
     </main>
 
     <br>
